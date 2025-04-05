@@ -1,0 +1,117 @@
+php artisan serve/ser :> for run the Laravel project ;
+php artisan make:controller controller-name :> for create the controller ;
+php artisan make:migration create_migration-name :> for create the migrations;
+php artisan migrate :> for run the migration ;
+php artisan migrate:rollback :> for delete the last running migration ;
+php artisan migrate:reset :> for delete the all migrations from database ;
+php artisan migrate:refersh :> if i want update the table colmun i us this code;
+php artisan migrate:feresh :> like refersh but feresh delete the migrate row in the database ;
+
+php artisan make:model page -m -c -r {'-m' for create migration , '-c' for create controller , '-r' for create controller method  }
+------------------------------------------------------------------
+CRUD
+C => create
+R => Read
+U => update
+D => delete
+
+tow way for crud in Laravel
+
+1-> Query builder .
+2-> Eloquent ORM . in the model and better from Query builder
+
+-------------------------------------------------------------------
+Route IN Laravel
+
+get :> for view the data
+
+post :> for send the data to database
+
+put :> for update but first delete the data secend update the data
+افزودن مقاله جدید
+
+patch :> for update but once update
+
+
+name() :> the name is so importand
+
+
+--------------------------------------------------------------
+
+
+يراى ايجاد يك مازول در لاراول
+
+١ - ايجاد فايل مايكيريشن براى مديريت جدول
+٢ - ايجاد فايل مدل براى عمليات كراد در ديتابيس
+٣ - ايجاد فايل كنترلر
+٣ - ایجاد فایل های ویو
+ه - تعيين روت هاى مروبطا
+
+-----------------------------------------------------------------
+            For create model
+
+php artisan make:model Page
+
+if model file name page and the database table name pages the model auto serch in database pages and connected
+
+
+--------------------------------------------------------------------
+        for insert data in database;
+
+input -> name ==> database colmun
+
+in the article model :>
+ protected $fillable = [
+        "titel",
+        "content",
+    ];
+    برای تمام ستون های که میخاهیم از طریق فورم پر شوند اجازه بدهیم protected $fillable = []
+
+در قسمت فورم قبل از همه
+{{ csrf_field() }} این کود را زده بخاطری که لاراول به ما اجازه پر کردن فورم را بدهد
+{{ method_field('') }} whin you update or delete the date you must be add your method_field
+--------------------------------------------------------------
+Route model bynding
+
+
+روش پیشرفته برای نمایش اطلاعات  وتقی بخاهیم از
+where
+استفاده کنیم ضرورت به ای دی ندارد و خودش از دیتابیس اطلاعات را میگیرد
+
+-------------------------------------------------------------------
+                validate
+
+for add validate
+$request->validate(  [
+            "username" => "required",
+            "email" => "required | email",
+            "password" => "required | min: 5 |max: 12  ",
+            "Age" => "required|integer|min:18 |max:45"
+
+        ]);
+for show =>
+@error('username')
+						<div class="alert alert-danger">{{ $message }}</div>
+						@enderror
+
+
+for show old data in input form
+ value="{{old('email')}}"
+
+
+---------------------------------------------------
+these extions in php.ini delete the ';'
+
+extension=curl
+extension=fileinfo
+extension=gd
+extension=gd
+extension=pdo_mysql
+extension=openssl
+sextension=zip
+extension_dir = "C:\php\ext"
+memory_limit = 256M
+
+--------------------------------------
+Laravel/UI
+
